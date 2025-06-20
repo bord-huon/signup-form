@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="style/crt.css" media="all">
+</head>
+<body>
+  
+  <img class="bezel" src="img/crt_green_mask.png">
+  
+  <div id="screen">
+    <div id="scanline"></div>
+    <div id="content" class="background" style="height: 89vh; filter: url(#SphereMapTest);">
+      <div style="display: none; position: absolute; top:-9999; z-index:0; visibility: hidden;">
+        <svg xmlns="" xmlns:xlink="" id="svg-root" width="381" height="166" z-index="-1">
+            <defs>
+              <filter id="SphereMapTest" filterUnits="objectBoundingBox" x="-0.44" y="-1.44" width="1.75" height="3.75">
+                <feImage result="Map" xlink:href="img/sphere_wide_1.png" /> <!--svg filter map magic i dont really understand-->
+                <feDisplacementMap in="SourceGraphic" in2="map" scale="100" xChannelSelector="R" yChannelSelector="G" />
+              </filter>  
+            </defs>
+        </svg>
+      </div>
+      
+      <div class="scan-wave"></div>
+      <div class="container">
+        Hello world!
+        <p>
+          This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. Sign up <span style="color:#ff944c; animation: pulsate-orng 0.11s ease-in-out infinite alternate">now</span> to get started.
+        </p>
+        <p>
+          You <span style="color:#ff944c; animation: pulsate-orng 0.11s ease-in-out infinite alternate">know</span> you want to.
+        </p>
+        
+        <form action="" method="post">
+          <div class="former">
+            <div class="formerer">
+              <label for="first_name">FIRST NAME:</label>
+              <input type="text" id="first_name">
+            </div>
+            <div class="formerer">
+              <label for="last_name">LAST NAME:</label>
+              <input type="text" id="last_name">
+            </div>        
+          </div>        
+          <div class="former">
+            <div class="formerer">
+              <label for="email">EMAIL:</label>
+              <input type="text" id="email" oninvalid="this.setCustomValidity(' ')" oninput="setCustomValidity('')" required> <!--hide default browser text since it cant be styled -->
+              <span class="popuptext notshow" id="invalid-email">^EMAIL IS REQUIRED</span>
+            </div>
+            <div class="formerer">
+              <label for="phone_num">PHONE NUMBER:</label>
+              <input type="text" id="phone_num">
+            </div>
+          </div>
+          <div class="former">
+            <div class="formerer">
+              <label for="password">PASSWORD:</label>
+              <input type="password" id="password" oninvalid="this.setCustomValidity(' ')" oninput="setCustomValidity('')" required>
+              <span class="popuptext notshow" id="invalid-pw">^PASSWORD IS REQUIRED</span>
+            </div>
+            <div class="formerer">
+              <label for="password_confirm">CONFRIM PASSWORD:</label>
+              <input type="password" id="password_confirm">
+              <span class="popuptext notshow" id="invalid-pwcfm">^PASSWORD DOES NOT MATCH</span>
+            </div>
+          </div>
+          <div class="former">
+            <button type="submit" id="submit" >Create Account</button>
+          </div>
+  
+        </form>
+        
+        <p>Already have an account: Y/N? <span style="color:var(--clr-orng3); animation: pulsate-orng 0.11s ease-in-out infinite alternate"><a href="">Log in</a></span></p>
+      </div>
+    </div>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

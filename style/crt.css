@@ -1,0 +1,289 @@
+@font-face{
+  font-family: 'dotFont';
+  src: url(/style/MatrixSansPrint-Regular.ttf);
+}
+
+:root{
+	--clr-grn1: #004416;
+	--clr-grn2: #00882d;
+	--clr-grn3: #48ff94;
+
+  --clr-orng1: #b23200;
+  --clr-orng2: #ff4800;
+  --clr-orng3: #ff944c;
+}
+
+@keyframes pulsate-grn {
+  100% {
+    text-shadow:
+      0 0 4px var(--clr-grn3),
+      0 0 13px var(--clr-grn3),
+      0 0 20px var(--clr-grn2),
+      0 0 30px var(--clr-grn2),
+			0 0 40px var(--clr-grn3),
+      0 0 40px var(--clr-grn2),
+      0 0 50px var(--clr-grn2);
+  }
+ 0% {
+    text-shadow:
+      0 0 4px var(--clr-grn3),
+      0 0 11px var(--clr-grn3),
+      0 0 18px var(--clr-grn2),
+      0 0 26px var(--clr-grn2),
+			0 0 36px var(--clr-grn3),
+      0 0 44px var(--clr-grn2);
+  }
+}
+@keyframes pulsate-orng {
+  100% {
+    text-shadow:
+      0 0 4px var(--clr-orng3),
+      0 0 13px var(--clr-orng3),
+      0 0 20px var(--clr-orng2),
+      0 0 30px var(--clr-orng2),
+      0 0 40px var(--clr-orng3),
+			0 0 40px var(--clr-orng2),
+      0 0 50px var(--clr-orng2);
+  }
+ 0% {
+    text-shadow:
+      0 0 4px var(--clr-orng3),
+      0 0 11px var(--clr-orng3),
+      0 0 18px var(--clr-orng2),
+      0 0 26px var(--clr-orng2),
+			0 0 36px var(--clr-orng2),
+      0 0 44px var(--clr-orng2);
+  }
+}
+@keyframes pulsate-grn-Bord {
+  100% {
+    box-shadow:
+			inset 0 0 3px var(--clr-grn3), 0 0 3px var(--clr-grn3),
+      inset 0 0 13px var(--clr-grn3), 0 0 13px var(--clr-grn3),
+      inset 0 0 20px var(--clr-grn1), 0 0 20px var(--clr-grn1),
+      inset 0 0 20px var(--clr-grn1), 0 0 20px var(--clr-grn1),
+			inset 0 0 30px var(--clr-grn1), 0 0 30px var(--clr-grn1),
+      inset 0 0 40px var(--clr-grn1), 0 0 40px var(--clr-grn1);
+  }
+ 0% {
+    box-shadow:
+      inset 0 0 3px var(--clr-grn3), 0 0 3px var(--clr-grn3),
+      inset 0 0 11px var(--clr-grn3), 0 0 11px var(--clr-grn3),
+      inset 0 0 18px var(--clr-grn1), 0 0 18px var(--clr-grn1),
+      inset 0 0 16px var(--clr-grn1), 0 0 16px var(--clr-grn1),
+			inset 0 0 26px var(--clr-grn1), 0 0 26px var(--clr-grn1),
+      inset 0 0 34px var(--clr-grn1), 0 0 34px var(--clr-grn1);
+  }
+}
+@keyframes pulsate-orng-Bord {
+  100% {
+    box-shadow:
+			inset 0 0 3px var(--clr-orng3), 0 0 3px var(--clr-orng3),
+      inset 0 0 13px var(--clr-orng3), 0 0 13px var(--clr-orng3),
+      inset 0 0 20px var(--clr-orng1), 0 0 20px var(--clr-orng1),
+      inset 0 0 20px var(--clr-orng1), 0 0 20px var(--clr-orng1),
+			inset 0 0 30px var(--clr-orng1), 0 0 30px var(--clr-orng1),
+      inset 0 0 40px var(--clr-orng1), 0 0 40px var(--clr-orng1);
+  }
+ 0% {
+    box-shadow:
+      inset 0 0 3px var(--clr-orng3), 0 0 3px var(--clr-orng3),
+      inset 0 0 11px var(--clr-orng3), 0 0 11px var(--clr-orng3),
+      inset 0 0 18px var(--clr-orng1), 0 0 18px var(--clr-orng1),
+      inset 0 0 16px var(--clr-orng1), 0 0 16px var(--clr-orng1),
+			inset 0 0 26px var(--clr-orng1), 0 0 26px var(--clr-orng1),
+      inset 0 0 34px var(--clr-orng1), 0 0 34px var(--clr-orng1);
+  }
+}
+.bezel {
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9001;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+  padding-bottom: 1em; /*counter balance the -margin so its still in the same spot*/
+  margin-bottom: -1em; /*increase hyperlin hitbox size since its display doesnt match the real location from svg map distortion*/
+  pointer-events: auto;
+}
+body{
+	overflow: hidden;
+  font-family: 'dotFont';
+	font-weight:normal;
+	font-style:normal;
+	color: var(--clr-grn2);
+  caret-color: transparent;
+  pointer-events: none;
+
+}
+
+.background {
+  min-width: 110vh;
+  min-height: 110vh;
+  background-color: black;
+  background-image: radial-gradient(200% 250% at center, rgba(0, 10, 10, 0.75), black 100%);
+  background-clip: padding-box;
+  color: var(--clr-grn3);
+  margin: 2vh;
+  overflow: hidden;
+  padding: 4.5vh;
+  font-size: 28px;
+  text-shadow: 0 0 6px #707070;
+  animation: pulsate-grn 0.11s ease-in-out infinite alternate;  
+}
+
+.background::after {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-size: 100% 3px, 2px 100%;
+
+  z-index: 2;
+  pointer-events: none;
+}
+.scan-wave {
+  width: 100%;
+  height: 100px;
+  z-index: 8;
+  left: 0px;
+  right: 0px;
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(255, 255, 255, 0.2) 10%,
+      rgba(0, 0, 0, 0.1) 100%
+  );
+  opacity: 0.1;
+  position: absolute;
+  bottom: 100%;
+  animation: scan-wave 9s linear infinite;
+  pointer-events: none;	
+}
+
+@keyframes scan-wave {
+  0% {
+      bottom: 100%;
+  }
+  80% {
+      bottom: 100%;
+  }
+  100% {
+      bottom: 0%;
+  }
+}
+
+#screen {
+  position: relative;
+  background: rgba(18, 16, 16, 1);
+  margin: auto;
+  width: 97%;
+  overflow: hidden;
+}
+
+#scanline:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(
+      to bottom,
+      rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 6px; /*this controls the thicc*/
+  z-index: 9000;
+  pointer-events: none;
+}
+.container{
+  margin: 0 2vh;
+}
+button {
+	font-family: 'dotFont';
+	height: 75px;
+	width: 300px;
+	font-size: 28px;
+	cursor: pointer;
+	color: var(--clr-grn3);
+	background-color: transparent;
+	outline: dashed var(--clr-grn3);
+	outline-offset: -1px;
+	border: none;
+	animation: pulsate-grn 0.11s ease-in-out infinite alternate, pulsate-grn-Bord 0.11s ease-in-out infinite alternate;
+  pointer-events: auto;
+}
+
+button:hover{
+background:var(--clr-grn3);
+}
+
+input[type=text],[type=password] {
+	padding: 5px;
+  font-family: inherit;
+  font-size: inherit;
+	height: 35px;
+	width: 300px;
+	color: var(--clr-grn3);
+  background-color: transparent;
+	outline: dashed var(--clr-grn3);
+	outline-offset: -1px;
+	border: none;
+  box-sizing: border-box; 
+}
+input:not(:focus){
+  animation: pulsate-grn 0.11s ease-in-out infinite alternate, pulsate-grn-Bord 0.11s ease-in-out infinite alternate;
+}
+input:focus {
+  color: var(--clr-orng3);
+  outline: dashed var(--clr-orng3);
+  
+  animation: pulsate-orng 0.11s ease-in-out infinite alternate, pulsate-orng-Bord 0.11s ease-in-out infinite alternate;
+}
+form{
+  pointer-events: auto;
+}
+.former{
+	margin-top: 40px;  
+  display: flex;
+  width: 600px;
+  align-items: center;
+}
+.former button{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.formerer{
+  margin-right: 100px;
+  position: relative;
+}
+
+.popuptext {
+  visibility: hidden;
+  width: 200vh;
+  top: 78px;
+  left: 218px;
+  position: absolute;
+  z-index: 900;
+  color: var(--clr-orng2);
+  animation: pulsate-orng 0.11s ease-in-out infinite alternate;
+}
+
+.show {
+  visibility: visible!important;
+}
+
