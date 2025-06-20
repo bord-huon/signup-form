@@ -1,6 +1,6 @@
 @font-face{
   font-family: 'dotFont';
-  src: url(/style/MatrixSansPrint-Regular.ttf);
+  src: url(./MatrixSansPrint-Regular.ttf);
 }
 
 :root{
